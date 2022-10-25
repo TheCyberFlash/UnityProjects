@@ -5,8 +5,8 @@ Playable build available soon,
 
 ## Controls:
 
-W, UpArrow or Space - Move forwards,
-A, LeftArrow - Move left,
-D, RightArrow - Move right,
+- W, UpArrow or Space - Move forwards,
+- A, LeftArrow - Move left,
+- D, RightArrow - Move right,
 
 There is no going back. Mwah.
