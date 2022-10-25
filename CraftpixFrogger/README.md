@@ -9,6 +9,8 @@ Playable build available soon,
 - A, LeftArrow - Move left,
 - D, RightArrow - Move right,
 
+- Space - Reset Game when win/lose
+
 There is no going back. Mwah.
 
 # Images
