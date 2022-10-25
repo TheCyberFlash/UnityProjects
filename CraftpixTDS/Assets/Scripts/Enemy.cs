@@ -6,27 +6,22 @@ public class Enemy : MonoBehaviour
 {
     private float healthPoints;
     private Transform target;
-    public float smoothTime = 5f;
+    public float speed;
+    private Vector2 movement;
+    [SerializeField] private float angleOffset;
 
-    private Vector3 velocity = Vector3.zero;
 
     private void Awake()
     {
         healthPoints = Random.Range(3, 10);
-        smoothTime = Random.Range(2f, 8f);
         target = GameObject.Find("Player").transform;
-        Debug.Log(healthPoints + " remaining");
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
-
         if (collision.gameObject.name.Contains("Bullet"))
         {
             healthPoints -= Random.Range(3f, 5.5f);
-            Debug.Log(healthPoints + " remaining");
         }
     }
 
@@ -37,8 +32,16 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Vector3 goalPos = target.position;
-        goalPos.z = transform.position.z;
-        transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, smoothTime);
+        Vector3 direction = target.position - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle + angleOffset);
+        direction.Normalize();
+        movement = direction;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        //transform.Translate(target.position * speed * Time.deltaTime);
     }
 }
