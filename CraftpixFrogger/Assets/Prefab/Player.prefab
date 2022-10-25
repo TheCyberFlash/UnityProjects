@@ -150,3 +150,5 @@ MonoBehaviour:
   forwardFrogJump: {fileID: 21300000, guid: 5866f5b0a371b124cb25cf9d6a76eac7, type: 3}
   sideFrogJump: {fileID: 21300000, guid: a4fd9012febfcb94198de0bf857fbae6, type: 3}
   sideFrog: {fileID: 21300000, guid: a8a00967de4d23b469a2341d7426b4d7, type: 3}
+  deadFrog: {fileID: 21300000, guid: 4ed6766a41acd8640bbdbc4fb0da4e22, type: 3}
+  youdied: {fileID: 0}
