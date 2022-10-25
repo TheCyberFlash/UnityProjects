@@ -5827,6 +5827,10 @@ PrefabInstance:
       propertyPath: youdied
       value: 
       objectReference: {fileID: 1013133321}
+    - target: {fileID: 8777879143017248448, guid: 2936794e1c6e77948ac55618993bae46, type: 3}
+      propertyPath: gameText
+      value: 
+      objectReference: {fileID: 1281194192}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2936794e1c6e77948ac55618993bae46, type: 3}
 --- !u!1001 &5291760626378913630

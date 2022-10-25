@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Frogger : MonoBehaviour
@@ -6,6 +7,9 @@ public class Frogger : MonoBehaviour
     private int row = 1;
     private SpriteRenderer spriteRenderer;
     private bool sideFacing;
+    private bool paused;
+    private string gameOverString = "Game over! \n Press Space to try again.";
+    private string youWinString = "You win! \n Press Space to play again.";
 
     [SerializeField] private Sprite forwardFrog;
     [SerializeField] private Sprite forwardFrogJump;
@@ -13,19 +17,28 @@ public class Frogger : MonoBehaviour
     [SerializeField] private Sprite sideFrog;
     [SerializeField] private Sprite deadFrog;
     [SerializeField] private GameObject youdied;
+    [SerializeField] private TextMeshProUGUI gameText;
 
     private void Awake()
     {
-        youdied.SetActive(false);
+        paused = true;
+        gameText.text = "Press spacebar to play";
         spriteRenderer = GetComponent<SpriteRenderer>();
         sideFacing = false;
     }
 
     private void Update()
     {
-        if (row < 12)
+
+        if (paused && Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            paused = false;
+            StartCoroutine(ResetLevel());
+        }
+
+        if (row < 12 && !paused)
+        {
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 sideFacing = false;
                 spriteRenderer.sprite = forwardFrog;
@@ -50,6 +63,11 @@ public class Frogger : MonoBehaviour
                 spriteRenderer.flipX = true;
                 Move(Vector3.right);
             }
+        }
+
+        if (row >= 12)
+        {
+            GameOver(youWinString);
         }
     }
 
@@ -77,7 +95,7 @@ public class Frogger : MonoBehaviour
         if (obstacle != null && platform == null)
         {
             transform.position = endPosition;
-            GameOver();
+            GameOver(gameOverString);
         } else
         {
             StartCoroutine(Jump(endPosition));
@@ -150,20 +168,36 @@ public class Frogger : MonoBehaviour
         return newYPosition;
     }
 
-    private void GameOver()
+    private void GameOver(string text)
     {
+        paused = true;
         youdied.SetActive(true);
-        enabled = false;
+        gameText.text = text;
         spriteRenderer.sprite = deadFrog;
         transform.position = new Vector3(0, 2, 0);
-
+        transform.SetParent(null);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (enabled && other.gameObject.layer == LayerMask.NameToLayer("Obstacle") && transform.parent == null)
+        if (!paused && other.gameObject.layer == LayerMask.NameToLayer("Obstacle") && transform.parent == null)
         {
-            GameOver();
+            GameOver(gameOverString);
         }
+
+        if (other.gameObject.layer == LayerMask.NameToLayer("Barrier") && transform.parent != null)
+        {
+            GameOver(gameOverString);
+        }
+    }
+
+    private IEnumerator ResetLevel()
+    {
+        yield return new WaitForSeconds(0.25f);
+        transform.position = new Vector3(0, -6.75f, 0);
+        spriteRenderer.sprite = forwardFrog;
+        youdied.SetActive(false);
+        paused = false;
+        row = 1;
     }
 }

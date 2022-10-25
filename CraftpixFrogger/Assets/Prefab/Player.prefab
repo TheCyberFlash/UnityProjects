@@ -152,3 +152,4 @@ MonoBehaviour:
   sideFrog: {fileID: 21300000, guid: a8a00967de4d23b469a2341d7426b4d7, type: 3}
   deadFrog: {fileID: 21300000, guid: 4ed6766a41acd8640bbdbc4fb0da4e22, type: 3}
   youdied: {fileID: 0}
+  gameText: {fileID: 0}
