@@ -5,7 +5,7 @@ Playable build available soon,
 
 ## Controls:
 
-- W, UpArrow or Space - Move forwards,
+- W, UpArrow - Move forwards,
 - A, LeftArrow - Move left,
 - D, RightArrow - Move right,
 
@@ -22,3 +22,5 @@ There is no going back. Mwah.
 
 - ![CraftpixFroggerScreenshot (5)](https://user-images.githubusercontent.com/87118878/197730749-ce765d3b-d3e5-4d31-9cda-29540c49632c.png)
 - ![CraftpixFroggerScreenshot (6)](https://user-images.githubusercontent.com/87118878/197730750-adf89444-6934-462b-a70c-a09497192514.png)
+- ![CraftpixFroggerScreenshot (7)](https://user-images.githubusercontent.com/87118878/197747833-12ea5a89-372e-4e02-8748-a28822ced484.png)
+- ![CraftpixFroggerScreenshot (8)](https://user-images.githubusercontent.com/87118878/197747840-0d5813cb-f6f3-452b-8d23-bfb70df35c32.png)
