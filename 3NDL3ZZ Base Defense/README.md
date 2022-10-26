@@ -1,26 +1,8 @@
-# UnityProjects
+# 3NDL3ZZ Base Defense
 
+Remaking an old game, made in Game Maker Studio, Simple endless tower defense, 1 map in original version
 
+## [Play GMS Version](https://gamejolt.com/games/3ndl3zz-basedefense/325756) (Game Maker Studio)
 
-## Craftpix TDS -
+![3BD](https://user-images.githubusercontent.com/87118878/198148292-6a344abb-b71e-4d91-987c-349166419d4e.png)
 
-Simple / Basic TDS like mess around project, used assets from Craftpix
-
-### [PLAY TDS soon](#)
-
-### [View Code: TDS](https://github.com/TheCyberFlash/UnityProjects/tree/main/CraftpixTDS)
-
-***
-
-## Craftpix Frogger - 
-
-Simple / Basic Frogger like mess around project, used assets from Craftpix.
-
-### [PLAY Frogger](https://github.com/TheCyberFlash/UnityProjects/tree/main/ReadyToPlayWindows)
-
-### [View Code: Frogger](https://github.com/TheCyberFlash/UnityProjects/tree/main/CraftpixFrogger)
-
-![CraftpixFroggerScreenshot (8)](https://user-images.githubusercontent.com/87118878/197747840-0d5813cb-f6f3-452b-8d23-bfb70df35c32.png)
-
-
-***
