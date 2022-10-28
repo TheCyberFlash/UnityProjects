@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3433397557524288756}
   - component: {fileID: 1603001137097713640}
   - component: {fileID: 5724985366049690875}
+  - component: {fileID: 7444043902382316031}
   m_Layer: 0
   m_Name: radius
   m_TagString: Radius
@@ -97,6 +98,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98524bf723b6deb44b2a77f05fde4da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &7444043902382316031
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6732567848300850174}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: -0.00000023841858}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &9052104604952235449
 GameObject:
   m_ObjectHideFlags: 0

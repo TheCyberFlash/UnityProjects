@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject sellButton;
     [SerializeField] GameObject upgradeButton;
 
+    public bool waveActive;
     public bool showTowerUIButtons = false;
     public GameObject selectedTowerObject;
     public Tower selectedTower;
@@ -20,6 +21,7 @@ public class LevelManager : MonoBehaviour
     public GameObject[] turrets;
     public GameObject[] traps;
 
+    public int enemyCount;
     public float money;
     public int waves;
     public int lives;
@@ -32,7 +34,18 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        waveCountText.text = "WAVE: " + waves;
+        if (enemyCount == 0)
+        {
+            waveActive = false;
+        }
+
+        if (!waveActive)
+        {
+            waveCountText.text = "Click to Start Wave";
+        } else
+        {
+            waveCountText.text = "WAVE: " + waves;
+        }
         liveCountText.text = lives.ToString();
         moneyCountText.text = Mathf.RoundToInt(money).ToString();
         sellButton.SetActive(showTowerUIButtons);
