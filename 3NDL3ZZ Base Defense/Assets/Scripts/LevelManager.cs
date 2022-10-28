@@ -10,9 +10,15 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI moneyCountText;
     [SerializeField] GameObject towerStats;
     [SerializeField] GameObject towerInitial;
+    [SerializeField] GameObject sellButton;
+    [SerializeField] GameObject upgradeButton;
+
+    public bool showTowerUIButtons = false;
+    public GameObject selectedTowerObject;
+    public Tower selectedTower;
 
     public GameObject[] turrets;
-    public int money;
+    public float money;
     public int waves;
     public int lives;
     // Start is called before the first frame update
@@ -26,13 +32,18 @@ public class LevelManager : MonoBehaviour
     {
         waveCountText.text = "WAVE: " + waves;
         liveCountText.text = lives.ToString();
-        moneyCountText.text = money.ToString();
+        moneyCountText.text = Mathf.RoundToInt(money).ToString();
+        sellButton.SetActive(showTowerUIButtons);
+        upgradeButton.SetActive(showTowerUIButtons);
     }
 
-    public void ShowTowerStats()
+    public void ShowTowerStats(GameObject tower)
     {
+        selectedTowerObject = tower;
+        selectedTower = selectedTowerObject.GetComponent<Tower>();
         towerInitial.SetActive(false);
         towerStats.SetActive(true);
+        showTowerUIButtons = true;
     }
 
     public void ShowTowerInit(string buttonDescription)
@@ -41,5 +52,27 @@ public class LevelManager : MonoBehaviour
         TextMeshProUGUI towerInitialText = towerInitial.GetComponent<TextMeshProUGUI>();
         towerInitialText.text = buttonDescription;
         towerStats.SetActive(false);
+        showTowerUIButtons = false;
+    }
+
+    public void UpgradeTower()
+    {
+        if (money >= selectedTower.upgradePrice)
+        {
+            money -= selectedTower.upgradePrice;
+            selectedTower.UpgradeTower();
+        }
+
+    }
+
+    public void SellTower()
+    {
+        var sellValue = selectedTower.upgradePrice / 2;
+
+        money += sellValue;
+
+        var tile = selectedTower.GetComponentInParent<Tile>();
+        tile.canPlace = true;
+        Destroy(selectedTowerObject);
     }
 }

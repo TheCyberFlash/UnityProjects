@@ -6,6 +6,7 @@ public class MousePointer : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
     public int buttonId;
+    public int price;
 
     private void Start()
     {

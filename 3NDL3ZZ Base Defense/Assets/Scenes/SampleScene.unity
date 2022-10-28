@@ -236,6 +236,7 @@ MonoBehaviour:
   levelManager: {fileID: 683821391}
   scaleSize: 0.2
   buttonId: 1
+  price: 100
 --- !u!1 &105257849
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +398,7 @@ MonoBehaviour:
   levelManager: {fileID: 683821391}
   scaleSize: 0.4
   buttonId: 4
+  price: 50
 --- !u!1 &199500608
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +632,7 @@ MonoBehaviour:
   levelManager: {fileID: 683821391}
   scaleSize: 0.3
   buttonId: 5
+  price: 25
 --- !u!1 &477250305
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,13 +995,18 @@ MonoBehaviour:
   moneyCountText: {fileID: 1722479162}
   towerStats: {fileID: 1779785069}
   towerInitial: {fileID: 1141691179}
+  sellButton: {fileID: 927666099}
+  upgradeButton: {fileID: 1169178608}
+  showTowerUIButtons: 0
+  selectedTowerObject: {fileID: 0}
+  selectedTower: {fileID: 0}
   turrets:
   - {fileID: 9052104604952235449, guid: bb0259768ed60e744964c8da3cbce625, type: 3}
   - {fileID: 8422405673246683192, guid: 8ef650a9627714d4fa0214e24a09c25b, type: 3}
   - {fileID: 7420682809834865084, guid: 6feccdf49d26afd49873d8c5876f8fb1, type: 3}
   - {fileID: 1683994374063595514, guid: 3573c41cca9b7d741806a42285612d87, type: 3}
   - {fileID: 8149904837101693591, guid: 60f2cf69d19b44240b6b92a24a3f22e2, type: 3}
-  money: 500
+  money: 20000
   waves: 0
   lives: 10
 --- !u!4 &683821392
@@ -1172,7 +1180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &927666100
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1237,7 +1245,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 927666102}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 683821391}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: SellTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &927666102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,6 +1541,7 @@ MonoBehaviour:
   levelManager: {fileID: 683821391}
   scaleSize: 0.2
   buttonId: 3
+  price: 200
 --- !u!1 &1092276521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,16 +1600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Upgrade Level: 5
-
-
-    Damage:
-
-    Range:
-
-    Reload Speed:
-
-    Price:'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1631,7 +1643,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1723,20 +1735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Wall
-
-    
-
-    Big Stone Wall
-
-    Enemy Go Boom
-
-    All Falls Down
-
-    
-
-    Price:
-    50'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1779,7 +1778,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1831,7 +1830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1169178609
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1896,7 +1895,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1169178611}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 683821391}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: UpgradeTower
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1169178611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2034,6 +2045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 0}
   buttonId: 0
+  price: 0
 --- !u!1 &1251979692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,6 +2533,7 @@ MonoBehaviour:
   levelManager: {fileID: 683821391}
   scaleSize: 0.2
   buttonId: 2
+  price: 150
 --- !u!1 &1569497969
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,6 +3381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &56886986920961138
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3856,6 +3870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &250790519313537343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3870,6 +3885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &277343197451954088
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,6 +3941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &287118845521877141
 Transform:
   m_ObjectHideFlags: 0
@@ -4230,6 +4247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &414298188445733180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4291,6 +4309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &427046653191626641
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4367,6 +4386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &452047036692228603
 Rigidbody2D:
   serializedVersion: 4
@@ -4495,6 +4515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &492570020816828578
 Rigidbody2D:
   serializedVersion: 4
@@ -4754,6 +4775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &606053121927717788
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4841,6 +4863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &634624997840484904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4978,6 +5001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &699905936141590848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4992,6 +5016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &714428667917250289
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5666,6 +5691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &899605721000052991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6253,6 +6279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &1067525245921535048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6267,6 +6294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &1069269601291834332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6353,6 +6381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &1108639973530961511
 Rigidbody2D:
   serializedVersion: 4
@@ -6388,6 +6417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &1135166189104209274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6490,6 +6520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &1165325301416322499
 Transform:
   m_ObjectHideFlags: 0
@@ -6647,6 +6678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &1186450606807037656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6661,6 +6693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &1193349011194556795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6675,6 +6708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &1194427757099684351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6741,6 +6775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &1208457459132259321
 Transform:
   m_ObjectHideFlags: 0
@@ -6816,6 +6851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &1248538020210375148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6830,6 +6866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &1251020495603751547
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7282,6 +7319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &1458337435784299436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7296,6 +7334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &1469843145670379634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7310,6 +7349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &1485835613636826900
 Transform:
   m_ObjectHideFlags: 0
@@ -7365,6 +7405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &1497995632616759119
 Rigidbody2D:
   serializedVersion: 4
@@ -7452,6 +7493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &1526179454506195663
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7533,6 +7575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &1569548935746101916
 Rigidbody2D:
   serializedVersion: 4
@@ -7715,6 +7758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &1654165356666666465
 GameObject:
   m_ObjectHideFlags: 0
@@ -7847,6 +7891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &1666068441377421025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8160,6 +8205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &1726205464809301927
 GameObject:
   m_ObjectHideFlags: 0
@@ -8467,6 +8513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &1817735720884001645
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8657,6 +8704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &1888127601629638415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8671,6 +8719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &1898724883061698603
 Transform:
   m_ObjectHideFlags: 0
@@ -8756,6 +8805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &1922171537559167386
 Rigidbody2D:
   serializedVersion: 4
@@ -8821,6 +8871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &1932112460738035559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8887,6 +8938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &1964130811734131212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8901,6 +8953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &1967437234049227084
 Rigidbody2D:
   serializedVersion: 4
@@ -8936,6 +8989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &1982144916779439224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8950,6 +9004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!1 &2017445323623682559
 GameObject:
   m_ObjectHideFlags: 0
@@ -8984,6 +9039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &2051620833866024637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8998,6 +9054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &2053487002777197657
 Rigidbody2D:
   serializedVersion: 4
@@ -9111,6 +9168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &2081506719684995175
 Transform:
   m_ObjectHideFlags: 0
@@ -9176,6 +9234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &2130915701254544080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9503,6 +9562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &2248229688663041711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9517,6 +9577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &2265408450907050012
 Rigidbody2D:
   serializedVersion: 4
@@ -9789,6 +9850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &2313750992481165972
 Transform:
   m_ObjectHideFlags: 0
@@ -9986,6 +10048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &2406104570928689268
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10350,6 +10413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &2560816463850285373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10364,6 +10428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &2563749094930074913
 Rigidbody2D:
   serializedVersion: 4
@@ -10492,6 +10557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &2622435062342526133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10686,6 +10752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &2713166328677285157
 Rigidbody2D:
   serializedVersion: 4
@@ -10819,6 +10886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &2765083368494714382
 Transform:
   m_ObjectHideFlags: 0
@@ -10946,6 +11014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &2795427614626861103
 Transform:
   m_ObjectHideFlags: 0
@@ -11053,6 +11122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &2829890141772052457
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11418,6 +11488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &2932307573632998171
 Rigidbody2D:
   serializedVersion: 4
@@ -11614,6 +11685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &2976014282459192875
 GameObject:
   m_ObjectHideFlags: 0
@@ -12246,6 +12318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &3139103238125375046
 GameObject:
   m_ObjectHideFlags: 0
@@ -12280,6 +12353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &3177254701058038020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12294,6 +12368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &3180121493858535844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12515,6 +12590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &3257275768091002626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12787,6 +12863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &3315216588797830848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13158,6 +13235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &3478071838206427563
 Transform:
   m_ObjectHideFlags: 0
@@ -13207,6 +13285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &3496944270577774578
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13273,6 +13352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &3520722713814154115
 GameObject:
   m_ObjectHideFlags: 0
@@ -13455,6 +13535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &3625185518313492615
 GameObject:
   m_ObjectHideFlags: 0
@@ -13509,6 +13590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &3656466080704171685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13889,6 +13971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &3762359037102421005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13903,6 +13986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &3776226374744069359
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14065,6 +14149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &3818910397966625235
 Transform:
   m_ObjectHideFlags: 0
@@ -14341,6 +14426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!1 &3853515247950706508
 GameObject:
   m_ObjectHideFlags: 0
@@ -14569,6 +14655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &3987768160539963703
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15168,6 +15255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &4140783730813645084
 Rigidbody2D:
   serializedVersion: 4
@@ -15383,6 +15471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &4208613340845712277
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15532,6 +15621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &4251214079283715753
 Transform:
   m_ObjectHideFlags: 0
@@ -15582,6 +15672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!1 &4285819204145758262
 GameObject:
   m_ObjectHideFlags: 0
@@ -15616,6 +15707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &4305045531435805006
 Rigidbody2D:
   serializedVersion: 4
@@ -15965,6 +16057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &4554423684280278406
 Rigidbody2D:
   serializedVersion: 4
@@ -16000,6 +16093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &4572657989553630736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16014,6 +16108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &4582974600158552615
 GameObject:
   m_ObjectHideFlags: 0
@@ -16141,6 +16236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &4600120820223933096
 Transform:
   m_ObjectHideFlags: 0
@@ -16304,6 +16400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &4651541195944790197
 Transform:
   m_ObjectHideFlags: 0
@@ -16679,6 +16776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &4741746656673540271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16749,6 +16847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &4822319037540440933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16763,6 +16862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &4853273464059442671
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16829,6 +16929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &4873687443621843724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16843,6 +16944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &4881978605764946217
 Rigidbody2D:
   serializedVersion: 4
@@ -17172,6 +17274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &4967739393770548751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17186,6 +17289,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &4979654625214502376
 Transform:
   m_ObjectHideFlags: 0
@@ -17260,6 +17364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &5010771187033802796
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17393,6 +17498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &5032047402762209181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17407,6 +17513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &5035314789273341505
 GameObject:
   m_ObjectHideFlags: 0
@@ -17558,6 +17665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &5074801447838533033
 Transform:
   m_ObjectHideFlags: 0
@@ -17686,6 +17794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &5090844408508970584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17700,6 +17809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &5101926420681822258
 Transform:
   m_ObjectHideFlags: 0
@@ -18018,6 +18128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &5216056938896784196
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18188,6 +18299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &5275167211060893478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18202,6 +18314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &5282258884736919223
 GameObject:
   m_ObjectHideFlags: 0
@@ -18356,6 +18469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &5309985412308829755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18448,6 +18562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &5335355654131654223
 Rigidbody2D:
   serializedVersion: 4
@@ -18571,6 +18686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &5361040484377396193
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18652,6 +18768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &5405684232745014535
 Rigidbody2D:
   serializedVersion: 4
@@ -18728,6 +18845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &5441146995710768246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18742,6 +18860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &5443945237765037729
 Transform:
   m_ObjectHideFlags: 0
@@ -18873,6 +18992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &5485902875252989469
 Transform:
   m_ObjectHideFlags: 0
@@ -19340,6 +19460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &5656893767395835833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19458,6 +19579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &5690127411443745665
 Rigidbody2D:
   serializedVersion: 4
@@ -19493,6 +19615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &5717733780403141825
 GameObject:
   m_ObjectHideFlags: 0
@@ -19578,6 +19701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &5749063712637075714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19592,6 +19716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &5760337199093236176
 Transform:
   m_ObjectHideFlags: 0
@@ -19636,6 +19761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &5771576313802451525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -19789,6 +19915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &5830406345950620469
 Transform:
   m_ObjectHideFlags: 0
@@ -19838,6 +19965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &5880728063508317582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19924,6 +20052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &5908833934660259185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20139,6 +20268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &6011184203562203286
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20531,6 +20661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &6163237266352728455
 Transform:
   m_ObjectHideFlags: 0
@@ -20560,6 +20691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &6207810320374954343
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20666,6 +20798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &6220206399904691065
 Transform:
   m_ObjectHideFlags: 0
@@ -20771,6 +20904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &6278583438235247825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20785,6 +20919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &6280594804548497393
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -20912,6 +21047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &6353560872974231961
 Rigidbody2D:
   serializedVersion: 4
@@ -20968,6 +21104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &6420835053819089108
 Transform:
   m_ObjectHideFlags: 0
@@ -21158,6 +21295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &6451938750738955563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21301,6 +21439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &6490473450778098165
 GameObject:
   m_ObjectHideFlags: 0
@@ -21381,6 +21520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &6543032092687750414
 Transform:
   m_ObjectHideFlags: 0
@@ -21652,6 +21792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &6703464862665730042
 Rigidbody2D:
   serializedVersion: 4
@@ -21810,6 +21951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &6762670139023232899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21824,6 +21966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &6771707402207802259
 Rigidbody2D:
   serializedVersion: 4
@@ -22126,6 +22269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &6955738314666391505
 Transform:
   m_ObjectHideFlags: 0
@@ -22651,6 +22795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &7134605854957020975
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23134,6 +23279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &7248376258686299073
 Rigidbody2D:
   serializedVersion: 4
@@ -23211,6 +23357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &7287512818172581187
 Transform:
   m_ObjectHideFlags: 0
@@ -23307,6 +23454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &7328053668690625562
 Transform:
   m_ObjectHideFlags: 0
@@ -23496,6 +23644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &7369415770651373575
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23562,6 +23711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &7389519552314375400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23654,6 +23804,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &7403341908402500640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23668,6 +23819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &7426037986463621818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23682,6 +23834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &7427635538293624133
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24344,6 +24497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &7618760926470346159
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -24410,6 +24564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &7655117033973901523
 Transform:
   m_ObjectHideFlags: 0
@@ -24491,6 +24646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &7684800634453156110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24505,6 +24661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!114 &7698998325962952730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24519,6 +24676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &7719380350364165270
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24663,6 +24821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &7760088359469581061
 Transform:
   m_ObjectHideFlags: 0
@@ -24884,6 +25043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &7821681223887065479
 GameObject:
   m_ObjectHideFlags: 0
@@ -24938,6 +25098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &7856476317181302441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25118,6 +25279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &7907353782568236650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26194,6 +26356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!1 &8258538273516952655
 GameObject:
   m_ObjectHideFlags: 0
@@ -26269,6 +26432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!212 &8281667473846206473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26495,6 +26659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &8348834256393300960
 GameObject:
   m_ObjectHideFlags: 0
@@ -26529,6 +26694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!61 &8361926292938679869
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26810,6 +26976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &8475862996727722215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -26850,6 +27017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &8496097440571188894
 GameObject:
   m_ObjectHideFlags: 0
@@ -26904,6 +27072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!1 &8506045557464821330
 GameObject:
   m_ObjectHideFlags: 0
@@ -27041,6 +27210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &8552799807269985839
 Rigidbody2D:
   serializedVersion: 4
@@ -27076,6 +27246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &8560626850767470802
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27220,6 +27391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &8591064648617482304
 GameObject:
   m_ObjectHideFlags: 0
@@ -27373,6 +27545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!50 &8662590113465809766
 Rigidbody2D:
   serializedVersion: 4
@@ -27429,6 +27602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &8687793963297793909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27443,6 +27617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!212 &8703643263092158804
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27685,6 +27860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!114 &8758275624358776655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27699,6 +27875,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!4 &8758442429207814230
 Transform:
   m_ObjectHideFlags: 0
@@ -28196,6 +28373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!61 &8993343783893649341
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -28475,6 +28653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!50 &9112350443523531389
 Rigidbody2D:
   serializedVersion: 4
@@ -28510,6 +28689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!1 &9133628936244220090
 GameObject:
   m_ObjectHideFlags: 0
@@ -28596,6 +28776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 1
+  canPlace: 0
 --- !u!1 &9166596013846111096
 GameObject:
   m_ObjectHideFlags: 0
@@ -28645,6 +28826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mousePointer: {fileID: 1181516792}
   isTile: 0
+  canPlace: 0
 --- !u!4 &9195972907517975860
 Transform:
   m_ObjectHideFlags: 0

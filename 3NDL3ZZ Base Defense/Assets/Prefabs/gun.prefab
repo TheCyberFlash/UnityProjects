@@ -98,6 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090fa8cfd8f67a145872589e60daaf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeLevel: 1
+  upgradePrice: 0
+  damage: 10
+  range: 10
+  reloadSpeed: 10
+  statsText: {fileID: 0}
 --- !u!1 &9052104605211245132
 GameObject:
   m_ObjectHideFlags: 0

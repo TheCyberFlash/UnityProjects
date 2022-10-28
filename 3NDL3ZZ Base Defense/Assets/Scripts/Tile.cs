@@ -6,7 +6,7 @@ public class Tile : MonoBehaviour
 {
     [SerializeField] private MousePointer mousePointer;
     [SerializeField] private bool isTile;
-    private bool canPlace;
+    public bool canPlace;
     private LevelManager levelManager;
 
     // Start is called before the first frame update
@@ -50,7 +50,8 @@ public class Tile : MonoBehaviour
             Tower tower = GetComponentInChildren<Tower>();
             if (tower != null)
             {
-                levelManager.ShowTowerStats();
+                var turret = tower.gameObject;
+                levelManager.ShowTowerStats(turret);
                 tower.SelectTower();
             }
         }
@@ -58,9 +59,15 @@ public class Tile : MonoBehaviour
 
     private void PlaceTurret(int index)
     {
+        canPlace = false;
+
         var turret = Instantiate(levelManager.turrets[index], transform.position, Quaternion.identity);
         turret.transform.parent = gameObject.transform;
-        canPlace = false;
+
+        var tower = turret.GetComponent<Tower>();
+        tower.upgradePrice = mousePointer.price;
+        tower.SelectTower();
+        levelManager.money -= mousePointer.price;
         ResetMouse();
     }
 
@@ -68,5 +75,6 @@ public class Tile : MonoBehaviour
     {
         mousePointer.spriteRenderer.sprite = null;
         mousePointer.buttonId = 0;
+        mousePointer.price = 0;
     }
 }
