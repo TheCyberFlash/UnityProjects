@@ -6,6 +6,7 @@ TagManager:
   tags:
   - StatsUI
   - StatsText
+  - Radius
   layers:
   - Default
   - TransparentFX

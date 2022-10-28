@@ -7,6 +7,8 @@ public class Tile : MonoBehaviour
     [SerializeField] private MousePointer mousePointer;
     [SerializeField] private bool isTile;
     public bool canPlace;
+    public bool blockBarricade;
+    public bool rotBarricade;
     private LevelManager levelManager;
 
     // Start is called before the first frame update
@@ -26,9 +28,11 @@ public class Tile : MonoBehaviour
     {
         if (mousePointer.buttonId != 0)
         {
+            var buttonId = mousePointer.buttonId;
+
+
             if (isTile && canPlace)
             {
-                var buttonId = mousePointer.buttonId;
 
                 switch (buttonId)
                 {
@@ -43,7 +47,22 @@ public class Tile : MonoBehaviour
                         break;
                 }
             }
-        }
+            else if (!isTile && canPlace)
+            {
+                switch (buttonId)
+                {
+                    case 4:
+                        if (!blockBarricade)
+                        {
+                            PlaceTrap(0);
+                        }
+                        break;
+                    case 5:
+                        PlaceTrap(1);
+                        break;
+                }
+            }
+        } 
 
         if (!canPlace)
         {
@@ -67,7 +86,25 @@ public class Tile : MonoBehaviour
         var tower = turret.GetComponent<Tower>();
         tower.upgradePrice = mousePointer.price;
         tower.SelectTower();
+
         levelManager.money -= mousePointer.price;
+        ResetMouse();
+    }
+
+    private void PlaceTrap(int index)
+    {
+        canPlace = false;
+
+        var trap = Instantiate(levelManager.traps[index], transform.position, Quaternion.identity);
+        trap.transform.parent = gameObject.transform;
+
+        if (index == 0 && rotBarricade)
+        {
+            trap.transform.localEulerAngles = new Vector3(0, 0, 90);
+        }
+
+        levelManager.money -= mousePointer.price;
+
         ResetMouse();
     }
 

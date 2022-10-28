@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
     public Tower selectedTower;
 
     public GameObject[] turrets;
+    public GameObject[] traps;
+
     public float money;
     public int waves;
     public int lives;
