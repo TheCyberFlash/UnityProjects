@@ -15,6 +15,7 @@ public class RoomManager : MonoBehaviour
     private int totalEnemyCount;
 
     public bool isClear;
+    public bool spawnEnemy;
 
     private void Awake()
     {
@@ -29,7 +30,8 @@ public class RoomManager : MonoBehaviour
         enemySpawner = GameObject.FindGameObjectWithTag("EnemyManager").GetComponent<EnemySpawner>();
         enemyCount = totalEnemyCount;
         enemies = enemySpawner.enemies;
-        isClear = false;
+        isClear = RoomCheck();
+    
         OpenDoors();
     }
 
@@ -62,6 +64,15 @@ public class RoomManager : MonoBehaviour
         foreach (var door in doors)
         {
             door.SetActive(!isClear);
+        }
+    }
+
+    bool RoomCheck()
+    {
+        if (spawnEnemy) {
+            return  false;
+        } else {
+            return true;
         }
     }
 
