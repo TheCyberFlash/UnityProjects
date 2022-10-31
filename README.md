@@ -34,7 +34,7 @@ Simple / Basic TDS like mess around project, used assets from Craftpix
 
 ### [View Code: TDS](https://github.com/TheCyberFlash/UnityProjects/tree/main/CraftpixTDS)
 
-![CraftpixTDS Screenshot (3)](https://user-images.githubusercontent.com/87118878/197890272-9aff7bcb-6f87-4d96-a748-37e9be2ef5b1.png)
+![CraftpixTDS Screenshot (5)](https://user-images.githubusercontent.com/87118878/198976038-4360c284-db5a-4dcc-9d71-2e54a7f18336.png)
 
 
 ***
